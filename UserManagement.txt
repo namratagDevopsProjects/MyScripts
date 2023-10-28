@@ -1,0 +1,93 @@
+ubuntu@ip-172-31-34-228:/home$ cd /
+ubuntu@ip-172-31-34-228:/$ pwd
+/
+
+ubuntu@ip-172-31-34-228:/$ ls
+bin  boot  dev  etc  home  lib  lib32  lib64  libx32  lost+found  media  mnt  opt  proc  root  run  sbin  snap  srv  sys  tmp  usr  var
+ubuntu@ip-172-31-34-228:/$
+
+ubuntu@ip-172-31-34-228:/$ cd home
+ubuntu@ip-172-31-34-228:/home$ useradd NewUser
+useradd: Permission denied.
+useradd: cannot lock /etc/passwd; try again later.
+
+
+ubuntu@ip-172-31-34-228:/home$ sudo useradd NewUser
+ubuntu@ip-172-31-34-228:/home$ sudo grep NewUser /etc/passwd
+NewUser:x:1002:1002::/home/NewUser:/bin/sh
+ubuntu@ip-172-31-34-228:/home$ whoami
+ubuntu
+ubuntu@ip-172-31-34-228:/home$ ls -l
+total 4
+drwxr-x--- 7 ubuntu ubuntu 4096 Oct 25 18:11 ubuntu
+
+
+ubuntu@ip-172-31-34-228:/home$ su NewUser
+Password: 
+su: Authentication failure
+
+
+ubuntu@ip-172-31-34-228:/home$ sudo passwd NewUser
+New password: 
+Retype new password: 
+passwd: password updated successfully
+
+
+ubuntu@ip-172-31-34-228:/home$ su NewUser
+Password: 
+
+$ whoami
+NewUser
+$ 
+
+
+ubuntu@ip-172-31-34-228:/home$ whoami
+ubuntu
+
+ubuntu@ip-172-31-34-228:/home$ usermod -l UpdatedName NewUser
+
+ubuntu@ip-172-31-34-228:/home$ sudo userdel UpdatedName
+
+ubuntu@ip-172-31-34-228:/home$ su UpdatedName
+su: user UpdatedName does not exist or the user entry does not contain all the required fields
+
+ubuntu@ip-172-31-34-228:/home$ id UpdatedName
+id: ‘UpdatedName’: no such user
+
+
+ubuntu@ip-172-31-34-228:~$ ls
+LinuxForDevOps  Namrata  dummy.pdf
+ubuntu@ip-172-31-34-228:~$ ls -l
+total 24
+drwxrwxr-x 4 ubuntu ubuntu  4096 Oct 25 15:28 LinuxForDevOps
+drwxrwxr-x 3 ubuntu ubuntu  4096 Oct 23 17:55 Namrata
+-rw-rw-r-- 1 ubuntu ubuntu 13264 Aug 27  2007 dummy.pdf
+
+ubuntu@ip-172-31-34-228:~$ sudo groupadd LinuxForDevOps
+
+ubuntu@ip-172-31-34-228:~$ sudo cat /etc/passwd
+The above command displays the list of all the users in our system
+
+ubuntu@ip-172-31-34-228:~$ sudo cat /etc/group
+The above command will display the list of all the groups in the system.
+
+ubuntu@ip-172-31-34-228:~$ sudo grep LinuxGroup /etc/group
+
+
+ubuntu@ip-172-31-34-228:~$ ls
+LinuxForDevOps  Namrata  dummy.pdf
+ubuntu@ip-172-31-34-228:~$ LinuxForDevOps
+LinuxForDevOps: command not found
+ubuntu@ip-172-31-34-228:~$ cd LinuxForDevOps/
+ubuntu@ip-172-31-34-228:~/LinuxForDevOps$ ls
+new_copied_file  practice1
+
+ubuntu@ip-172-31-34-228:~/LinuxForDevOps$ sudo chown Ram /practice1/file3
+
+ubuntu@ip-172-31-34-228:~/LinuxForDevOps$ sudo chgrp LinuxGroup new_copied_file
+ubuntu@ip-172-31-34-228:~/LinuxForDevOps$ ls -l
+total 8
+drwxrwxr-x 2 ubuntu LinuxGroup 4096 Oct 25 15:29 new_copied_file
+drwxrwxr-x 2 ubuntu ubuntu     4096 Oct 25 15:37 practice1
+ubuntu@ip-172-31-34-228:~/LinuxForDevOps$ 
+ubuntu@ip-172-31-34-228:~/LinuxForDevOps$ chmod 775 practice1

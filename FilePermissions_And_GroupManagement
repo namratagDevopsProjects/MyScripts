@@ -1,0 +1,51 @@
+ubuntu@ip-172-31-34-228:~$ ls
+LinuxForDevOps  Namrata  dummy.pdf
+ubuntu@ip-172-31-34-228:~$ ls -l
+total 24
+drwxrwxr-x 4 ubuntu ubuntu  4096 Oct 25 15:28 LinuxForDevOps
+drwxrwxr-x 3 ubuntu ubuntu  4096 Oct 23 17:55 Namrata
+-rw-rw-r-- 1 ubuntu ubuntu 13264 Aug 27  2007 dummy.pdf
+
+ubuntu@ip-172-31-34-228:~$ sudo groupadd LinuxGroup
+
+ubuntu@ip-172-31-34-228:~$ sudo useradd -m Raj
+ubuntu@ip-172-31-34-228:~$ sudo useradd -m Ram
+ubuntu@ip-172-31-34-228:~$ sudo useradd -m Rita
+ubuntu@ip-172-31-34-228:~$ sudo useradd -m Asha
+ubuntu@ip-172-31-34-228:~$ sudo useradd -m Namrata
+
+ubuntu@ip-172-31-34-228:~$ sudo gpasswd -a Raj LinuxGroup
+ubuntu@ip-172-31-34-228:~$ sudo gpasswd -a Ram LinuxGroup
+ubuntu@ip-172-31-34-228:~$ sudo gpasswd -a Rita LinuxGroup
+
+ubuntu@ip-172-31-34-228:~$ sudo cat /etc/passwd
+The above command displays the list of all the users in our system
+
+ubuntu@ip-172-31-34-228:~$ sudo cat /etc/group
+The above command will display the list of all the groups in the system.
+
+ubuntu@ip-172-31-34-228:~$ sudo grep LinuxGroup /etc/group
+This will display the properties and users in this group
+
+
+ubuntu@ip-172-31-34-228:~$ ls
+LinuxForDevOps  Namrata  dummy.pdf
+
+ubuntu@ip-172-31-34-228:~$ cd LinuxForDevOps/
+ubuntu@ip-172-31-34-228:~/LinuxForDevOps$ ls
+new_copied_file  practice1
+
+ubuntu@ip-172-31-34-228:~/LinuxForDevOps$ chmod 775 practice1
+
+ubuntu@ip-172-31-34-228:~/LinuxForDevOps$ sudo chown Ram /practice1/file3
+
+ubuntu@ip-172-31-34-228:~/LinuxForDevOps$ sudo chgrp LinuxGroup new_copied_file
+ubuntu@ip-172-31-34-228:~/LinuxForDevOps$ ls -l
+total 8
+drwxrwxr-x 2 ubuntu LinuxGroup 4096 Oct 25 15:29 new_copied_file
+drwxrwxr-x 2 ubuntu ubuntu     4096 Oct 25 15:37 practice1
+
+ubuntu@ip-172-31-34-228:~/LinuxForDevOps$ 
+
+
+
